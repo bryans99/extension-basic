@@ -24,16 +24,10 @@
 
 import { connectExtensionHost } from "@looker/extension-sdk"
 
-function establishHostConnection() {
-  connectExtensionHost().then(() => {
-  }).catch((error) => console.error())
-}
-
-
 (function () {
   // Extensions currently require a chatty connection with the Looker host.
   // Removing this requirement currently under considertion.
-  establishHostConnection()
+  connectExtensionHost()
   document.write(`
   <style>
     body {

@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  *
- * Copyright (c) 2019 Looker Data Sciences, Inc.
+ * Copyright (c) 2020 Looker Data Sciences, Inc.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,47 +22,43 @@
  * THE SOFTWARE.
  */
 
-const path = require("path")
+const path = require("path");
 
 const PATHS = {
-  app: path.join(__dirname, 'src/index.js'),
-}
+  app: path.join(__dirname, "src/index.js"),
+};
 
 module.exports = {
   entry: {
     app: PATHS.app,
   },
   output: {
-    path: __dirname + '/dist',
-    filename: 'bundle.js',
-    publicPath: "http://localhost:8080/"
+    path: __dirname + "/dist",
+    filename: "bundle.js",
+    publicPath: "http://localhost:8080/",
   },
-  mode: 'development',
+  mode: "development",
   module: {
     rules: [
       {
-        test: /\.(js|jsx|ts|tsx)$/,
-        loader: 'babel-loader',
+        test: /\.(js|jsx)$/,
+        loader: "babel-loader",
         exclude: /node_modules/,
-        include: /src/
+        include: /src/,
       },
-      {
-        test: /\.jsx?$/,
-        use: 'react-hot-loader/webpack',
-        include: /node_modules/,
-      }
     ],
   },
   resolve: {
-    extensions: ['.tsx', '.ts', '.js'],
+    extensions: [".jsx", ".js"],
   },
   devServer: {
-    index: 'index.html',
+    index: "index.html",
     headers: {
       "Access-Control-Allow-Origin": "*",
       "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
-      "Access-Control-Allow-Headers": "X-Requested-With, content-type, Authorization"
-    }
+      "Access-Control-Allow-Headers":
+        "X-Requested-With, content-type, Authorization",
+    },
   },
-  devtool: 'inline-source-map'
-}
+  devtool: "inline-source-map",
+};
